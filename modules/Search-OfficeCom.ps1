@@ -1,14 +1,14 @@
-<#
+﻿<#
 .SYNOPSIS
     Script de Auditoria Forense para busca de termos em documentos do Office
 .PARAMETER Termos
     Lista de nomes ou strings para busca (Ex: "NOME1", "NOME2").
 
-.PARAMETER CaminhoAlvo
+.PARAMETER Caminho
     Diretorio inicial da varredura. O padrao e a pasta atual (.).
 
 .EXAMPLE
-    .\BuscaOffice.ps1 -Termos ".crypt", "ransom", "bitcoin" -CaminhoAlvo "%userprofile%\Downloads" 
+    .\Search-OfficeCom.ps1 -Termos ".crypt", "ransom", "bitcoin" -Caminho "%userprofile%\Downloads" 
 #>
 
 param(
@@ -27,19 +27,19 @@ $word.Visible = $excel.Visible = $false
 
 foreach ($file in $Files) {
     $ext = $file.Extension.ToLower()
-    Write-Host "Analisando: $($file.Name)" -ForegroundColor Gray
+    Write-Output "Analisando: $($file.Name)"
 
     try {
         if ($ext -match "doc") {
             $doc = $word.Documents.Open($file.FullName, $false, $true)
-            if ($doc.Content.Text -match $Pattern) { Write-Host "[!] Encontrado em Word: $($file.FullName)" -ForegroundColor Green }
+            if ($doc.Content.Text -match $Pattern) { Write-Output "[!] Encontrado em Word: $($file.FullName)" }
             $doc.Close()
         }
         elseif ($ext -match "xls") {
             $wb = $excel.Workbooks.Open($file.FullName)
             foreach ($sheet in $wb.Worksheets) {
                 foreach ($t in $Termos) {
-                    if ($sheet.UsedRange.Find($t)) { Write-Host "[!] Encontrado em Excel: $($file.FullName)" -ForegroundColor Green; break }
+                    if ($sheet.UsedRange.Find($t)) { Write-Output "[!] Encontrado em Excel: $($file.FullName)"; break }
                 }
             }
             $wb.Close($false)
@@ -49,14 +49,14 @@ foreach ($file in $Files) {
             foreach ($slide in $pres.Slides) {
                 foreach ($shape in $slide.Shapes) {
                     if ($shape.HasTextFrame -and $shape.TextFrame.TextRange.Text -match $Pattern) {
-                        Write-Host "[!] Encontrado em PowerPoint: $($file.FullName)" -ForegroundColor Green
+                        Write-Output "[!] Encontrado em PowerPoint: $($file.FullName)"
                         break
                     }
                 }
             }
             $pres.Close()
         }
-    } catch { Write-Host "[Erro] Falha ao processar $($file.Name)" -ForegroundColor Red }
+    } catch { Write-Output "[Erro] Falha ao processar $($file.Name): $($_.Exception.Message)" }
 }
 
 $word.Quit(); $excel.Quit(); $ppt.Quit()

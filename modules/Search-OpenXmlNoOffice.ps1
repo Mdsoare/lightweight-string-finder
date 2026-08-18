@@ -1,14 +1,14 @@
-<#
+﻿<#
 .SYNOPSIS
     Script de Auditoria Forense para busca de termos em documentos do Office, txt, etc.
 .PARAMETER Termos
     Lista de nomes ou strings para busca (Ex: "NOME1", "NOME2").
 
-.PARAMETER CaminhoAlvo
+.PARAMETER Caminho
     Diretorio inicial da varredura. O padrao e a pasta atual (.).
 
 .EXAMPLE
-    .\BuscaDocs.ps1 -Termos ".crypt", "ransom", "bitcoin" -CaminhoAlvo "%userprofile%\Downloads" 
+    .\Search-OpenXmlNoOffice.ps1 -Termos ".crypt", "ransom", "bitcoin" -Caminho "%userprofile%\Downloads" 
 #>
 
 param([string[]]$Termos, [string]$Caminho = ".")
@@ -27,8 +27,10 @@ foreach ($file in $Files) {
         $match = Get-ChildItem -Path $tempDir -Recurse -Filter *.xml | Select-String -Pattern $Pattern
         
         if ($match) {
-            Write-Host "[!] Termo encontrado via extração XML em: $($file.FullName)" -ForegroundColor Cyan
+            Write-Output "[!] Termo encontrado via extração XML em: $($file.FullName)"
         }
-    } catch {}
+    } catch {
+        Write-Warning "Falha ao descompactar ou analisar XML do arquivo $($file.FullName): $($_.Exception.Message)"
+    }
     finally { if (Test-Path $tempDir) { Remove-Item $tempDir -Recurse -Force } }
 }
