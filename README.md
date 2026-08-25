@@ -1,5 +1,18 @@
 # 🔎 Lightweight String Finder
 
+<!-- Badges do Topo -->
+[![Security Compliance](https://img.shields.io/badge/Security-Local%20Only%20%2F%20Zero%20Trust-green.svg)](#segurança-e-compliance-devsecops)
+[![CI Pipeline](https://github.com/Mdsoare/lightweight-string-finder/actions/workflows/security-scan.yml/badge.svg)](https://github.com/Mdsoare/lightweight-string-finder/actions/workflows/security-scan.yml)
+[![Security Rating](https://img.shields.io/badge/Security-DevSecOps%20Hardened-green?style=flat&logo=github)](https://github.com/Mdsoare/lightweight-string-finder/security/code-scanning)
+![Code Style: PSScriptAnalyzer](https://img.shields.io/badge/code%20style-PSScriptAnalyzer-5391FE.svg?logo=powershell)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+
+<!-- Tech Stack & DevSecOps Ecosystem -->
+[![PowerShell](https://img.shields.io/badge/PowerShell-7.0%2B-5391FE?style=for-the-badge&logo=powershell&logoColor=white)](https://learn.microsoft.com/powershell/)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Dependabot](https://img.shields.io/badge/Dependabot-025E8C?style=for-the-badge&logo=dependabot&logoColor=white)
+![SAST & SCA](https://img.shields.io/badge/DevSecOps-SAST%20%26%20SCA-red?style=for-the-badge&logo=github-actions&logoColor=white)
+
 Uma suíte leve, rápida e modular em PowerShell voltada para a **localização acelerada de strings, palavras-chave e padrões de texto** dentro de documentos corporativos e arquivos de log.
 
 O diferencial principal deste projeto é a oferta de duas abordagens distintas de busca: uma via motores de automação nativos (**COM Objects**) e outra via descompactação e parsing direto de **OpenXML (sem dependência do Microsoft Office instalado)**.
