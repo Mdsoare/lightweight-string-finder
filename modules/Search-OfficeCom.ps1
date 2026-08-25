@@ -8,7 +8,7 @@
     Diretorio inicial da varredura. O padrao e a pasta atual (.).
 
 .EXAMPLE
-    .\Search-OfficeCom.ps1 -Termos ".crypt", "ransom", "bitcoin" -Caminho "%userprofile%\Downloads" 
+    .\Search-OfficeCom.ps1 -Termos ".crypt", "ransom", "bitcoin" -Caminho "%userprofile%\Downloads"
 #>
 
 param(

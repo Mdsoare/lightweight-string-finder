@@ -8,7 +8,7 @@
     Diretorio inicial da varredura. O padrao e a pasta atual (.).
 
 .EXAMPLE
-    .\Search-OpenXmlNoOffice.ps1 -Termos ".crypt", "ransom", "bitcoin" -Caminho "%userprofile%\Downloads" 
+    .\Search-OpenXmlNoOffice.ps1 -Termos ".crypt", "ransom", "bitcoin" -Caminho "%userprofile%\Downloads"
 #>
 
 param([string[]]$Termos, [string]$Caminho = ".")
@@ -22,10 +22,10 @@ foreach ($file in $Files) {
         # Renomeia temporariamente para .zip e extrai
         Add-Type -AssemblyName System.IO.Compression.FileSystem
         [System.IO.Compression.ZipFile]::ExtractToDirectory($file.FullName, $tempDir)
-        
+
         # Busca em todos os arquivos XML extraídos
         $match = Get-ChildItem -Path $tempDir -Recurse -Filter *.xml | Select-String -Pattern $Pattern
-        
+
         if ($match) {
             Write-Output "[!] Termo encontrado via extração XML em: $($file.FullName)"
         }
