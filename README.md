@@ -50,30 +50,30 @@ lightweight-string-finder/
 
 1. Busca Sem Dependência do Office (Método OpenXML) - Recomendado para Servidores
 
-Este método renomeia temporariamente a estrutura do documento, extrai o conteúdo `.xml` para o diretório temporário e executa um regex refinado. É ideal para ambientes de servidor ou máquinas sem a suíte Office instalada:
+    Este método renomeia temporariamente a estrutura do documento, extrai o conteúdo `.xml` para o diretório temporário e executa um regex refinado. É ideal para ambientes de servidor ou máquinas sem a suíte Office instalada:
 
-```PowerShell
-.\modules\Search-OpenXmlNoOffice.ps1 -Termos "confidencial", "vazamento", "token" -Caminho "D:\Arquivos"
-```
+    ```PowerShell
+    .\modules\Search-OpenXmlNoOffice.ps1 -Termos "confidencial", "vazamento", "token" -Caminho "D:\Arquivos"
+    ```
 
 2. Busca Automatizada via Motores COM do Office
 
-Utiliza as instâncias do Word, Excel e PowerPoint em segundo plano para varrer documentos e apresentações complexas:
+    Utiliza as instâncias do Word, Excel e PowerPoint em segundo plano para varrer documentos e apresentações complexas:
 
-```PowerShell
-.\modules\Search-OfficeCom.ps1 -Termos "MALWARE", "RANSOMWARE" -Caminho "C:\Users\Public\Documents"
-```
+    ```PowerShell
+    .\modules\Search-OfficeCom.ps1 -Termos "MALWARE", "RANSOMWARE" -Caminho "C:\Users\Public\Documents"
+    ```
 
 ---
 
 ## 🛠️ Comparativo de Módulos
 
-| Recurso / Módulo	| Search-OpenXmlNoOffice.ps1 |	Search-OfficeCom.ps1 |
-| ----------------- | -------------------------- | ----------------------|
-| Exige Microsoft Office Instalado? |  ❌ Não    |  ✅ Sim               |
-| Velocidade de Execução |	⚡ Alta (Parsing XML) |	🐢 Média (Abertura de COM) |
-| Tipos de Arquivos Suportados	| .docx, .xlsx, .pptx	| .doc*, .xls*, .ppt* |
-| Uso Ideal	 | Servidores, Servidores de Arquivo, Ambientes Minimalistas | Estações de Trabalho com Office instalado |
+|          Recurso / Módulo          |                      Search-OpenXmlNoOffice.ps1              |            Search-OfficeCom.ps1           |
+| ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------|
+| Exige Microsoft Office Instalado?  |                              ❌ Não                          |                ✅ Sim                    |
+|       Velocidade de Execução       |                       ⚡ Alta (Parsing XML)                  |        🐢 Média (Abertura de COM)        |
+|    Tipos de Arquivos Suportados    |                         .docx, .xlsx, .pptx                  |            .doc*, .xls*, .ppt*            |
+|              Uso Ideal             |   Servidores, Servidores de Arquivo, Ambientes Minimalistas  | Estações de Trabalho com Office instalado |
 
 ---
 
