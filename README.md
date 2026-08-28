@@ -68,12 +68,12 @@ lightweight-string-finder/
 
 ## 🛠️ Comparativo de Módulos
 
-|          Recurso / Módulo          |                      Search-OpenXmlNoOffice.ps1              |            Search-OfficeCom.ps1           |
-| ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------|
-| Exige Microsoft Office Instalado?  |                              ❌ Não                          |                ✅ Sim                    |
-|       Velocidade de Execução       |                       ⚡ Alta (Parsing XML)                  |        🐢 Média (Abertura de COM)        |
-|    Tipos de Arquivos Suportados    |                         .docx, .xlsx, .pptx                  |            .doc*, .xls*, .ppt*            |
-|              Uso Ideal             |   Servidores, Servidores de Arquivo, Ambientes Minimalistas  | Estações de Trabalho com Office instalado |
+| Recurso / Módulo                    | Search-OpenXmlNoOffice.ps1                  | Search-OfficeCom.ps1                                   |
+| :---------------------------------- | :------------------------------------------ | :----------------------------------------------------- |
+| Exige Microsoft Office Instalado?   | ❌ Não                                      | ✅ Sim                                                 |
+| Velocidade de Execução              | ⚡ Alta (Parsing XML)                       | 🐢 Média (Abertura de COM)                             |
+| Tipos de Arquivos Suportados        | .docx, .xlsx, .pptx                         | .doc\*, .xls\*, .ppt\*                                 |
+| Uso Ideal                           | Servidores, File Servers, Ambientes Minimal | Estações de Trabalho com Office instalado             |
 
 ---
 
