@@ -87,10 +87,10 @@ lightweight-string-finder/
 
 ---
 
-## 🤝 Contribuição e Licença
+## 📜 Licença
 
-Sinta-se à vontade para enviar PRs, propor novas rotinas de parsing ou sugerir melhorias no desempenho de busca.
+Este projeto está sob a licença [MIT](LICENSE).
 
 ---
 
-Desenvolvido por Marcelo Soares | Ferramentas Modulares de Segurança e Análise de Dados.
+*Desenvolvido por **Marcelo Soares** | Especialista em Segurança da Informação e Computação Forense.*
